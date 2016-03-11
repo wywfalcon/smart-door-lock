@@ -1,0 +1,17 @@
+application: elegant-moment-843
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /app
+  static_dir: app
+  secure: always
+
+- url: .*
+  script: elegant-moment-843.app
+
+libraries:
+- name: webapp2
+  version: latest

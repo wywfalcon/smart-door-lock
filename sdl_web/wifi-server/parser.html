@@ -1,0 +1,53 @@
+<html lang="en">
+	<head>
+		<title>PIC24 Parser</title>
+	</head>
+	<style>
+		.center{margin:auto;}
+	</style>
+	<body>
+		<table class="center">
+			<tr>
+				<td>
+					<div>Text to parse</div>
+					<textarea id="input" rows="50" cols="100"></textarea>
+				</td>
+				<td>
+					<div>Parsed Text</div>
+					<textarea id="output" rows="50" cols="100"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td><span>Prefix<input id="prefix"></span><span>Subfix<input id="subfix"></span></td>
+				<td>Character Count:<span id="charCount">0</span></td>
+			</tr>
+			<tr>
+				<td><div><input onclick="parseText()" type="button" value="Update"></div></td>
+				<td>Line Count:<span id="lineCount">0</span></td>
+			</tr>
+		</table>
+		<script>
+			var parseText = function () {
+				var input = document.getElementById('input'),
+					output = document.getElementById('output'),
+					prefix = document.getElementById('prefix'),
+					subfix = document.getElementById('subfix'),
+					charCount = document.getElementById('charCount'),
+					lineCount = document.getElementById('lineCount'),
+					string;
+				// Remove tabs and line breaks
+				string = input.value.replace(/(?:\r\n|\r|\n|\t)/g, '');
+				// Count characters
+				charCount.innerHTML = string.length;
+				// Split every 80 characters
+				string = string.match(/.{1,80}/g) || [];
+				lineCount.innerHTML = string.length;
+				// Add \ before each " and surround each line with double quotes and 
+				for (var i in string)
+					string[i] = prefix.value + string[i].replace(/"/g, '\\\"') + subfix.value;
+				// Output it
+				output.value = string.join('\n');
+			};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,306 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+
+* {
+	font-family: "Tahoma";
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.bgi {
+	position: fixed;
+	z-index: -1;
+	left: -20px;
+	top: -20px;
+	min-width: calc(100% + 40px);
+	-webkit-filter: blur(10px);
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	-ms-filter: blur(10px);
+	filter: blur(10px)
+}
+
+.clearBG { background: none; }
+.whiteBG { background: #FFF; }
+.center { margin: auto; }
+.alignCenter { text-align: center; }
+.alignRight { float: right; }
+.alignLeft { float: left; }
+.stretch { width: 100%; }
+.padding { padding: 3%; }
+.noPadding { padding: 0; margin: 0; }
+.margin { margin: 3%; }
+.bold { font-weight: bold; }
+.whiteFont { color: #FFF; }
+.border { border: 2px solid #FFF; border-radius: 10px; }
+.alignTop { vertical-align: top; }
+.alignMid { position: relative; top: 50%; transform: translateY(25%); }
+.scrollPadding { overflow-y: scroll; overflow-x: visible; }
+.autoScroll { overflow-y: auto; }
+
+input[type=text], input[type=password], input[type=week], select {
+	padding: 10px;
+	border-radius: 5px;
+	width: 80%;
+	background: #FFF;
+	color: #444;
+}
+input[type=week], select, option {
+	background: #555;
+	color: #FFF;
+}
+input[type=text]:hover, input[type=password]:hover {
+	border: solid 2px #AAA;
+}
+input[type=text]:active, input[type=password]:active {
+	border: solid 2px #777;
+}
+input[type=submit] {
+	cursor: pointer;
+	background: rgba(0,0,0,0.5);
+	border: 0 none;
+	border-radius: 5px;
+	color: #FFF;
+	font-size: 150%;
+}
+input[type=submit]:hover {
+	background: rgba(0,0,0,0.8);
+}
+.button {
+	cursor: pointer;
+	background: rgba(0,0,0,0.5);
+	padding: 2%;
+	border-radius: 5px;
+	border: 0 none;
+	color: #FFF;
+	text-align: center;
+	font-size: 150%;
+}
+.button:hover, .button.selected {
+	background: rgba(0,0,0,0.8);
+}
+.warning {
+	background: #F00;
+}
+.input {
+	height: 80px;
+	width: 300px;
+}
+
+.boundBox {
+	border-radius: 10px;
+	background: rgba(0,0,0,0.3);
+	padding: 1%;
+	max-width: 1000px;
+	min-width: 500px;
+}
+
+.indent {
+	margin-left: 10%; 
+}
+
+.label {
+	font-size: 105%;
+}
+
+.info {
+	padding-left: 3%;
+	color: #FFF;
+}
+
+.error {
+	text-align: left;
+	padding: 10px;
+	vertical-align: text-top;
+	margin: auto;
+	font-style: italic;
+	width: 80%;
+	border-radius: 10px;
+}
+.message {
+	background: rgba(0,0,0,0.5);
+	padding: 3%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.column {
+	padding: 2%;
+	color: #FFF;
+	overflow: hidden;
+}
+
+.header, .footer {
+	border: 0;
+	height: 30px;
+}
+
+.admin {
+	background: rgba(255,255,255,0.4);
+}
+.hideShow:hover {
+	background: rgba(0,0,0,0.3);
+}
+.edit {
+	cursor: pointer;
+}
+.edit:hover {
+	background: rgba(0,0,0,0.3);
+}
+
+.hoverbox {
+	position: relative;
+	z-index: 1000;
+	width: 80%;
+	text-align: center;
+	background: rgba(0,0,0,0.6);
+	border-radius: 5px;
+}
+
+/*
+	SIDE BAR
+*/
+
+.sidebar {
+	z-index: 1000;
+	position: fixed;
+	left: 250px;
+	width: 250px;
+	height: 100%;
+	margin-left: -250px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background: rgba(0,0,0,0.4);
+	color: #FFF;
+}
+.item {
+	color: #FFF;
+	cursor: pointer;
+	padding: 10%;
+}
+.item:hover, .item.selected, .edit.binded {
+	background: rgba(0,0,0,0.5);
+	-webkit-transition: background 0.3s; /* Safari */
+    transition: background 0.3s;
+}
+.welcome {
+	color: #FFF;
+	padding: 10%;
+}
+.divider {
+	border: 1px solid #FFF;
+}
+
+/*
+	Page Content
+*/
+
+.mainPage {
+	position: fixed;
+	left: 250px;
+	height: 100%;
+	width: calc(100% - 250px);
+	width: -moz-calc(100% - 250px);
+	width: -webkit-calc(100% - 250px);
+	width: -o-calc(100% - 250px);
+	width: calc(100% - 250px);
+	overflow-y: auto;
+}
+.pageContainer {
+	position: absolute;
+	top: 50px;
+	width: 100%;
+	height: calc(100% - 50px);
+	height: -moz-calc(100% - 50px);
+	height: -webkit-calc(100% - 50px);
+	height: -o-calc(100% - 50px);
+	height: calc(100% - 50px);
+}
+.subPageContainer {
+	vertical-align: text-top;
+	height: 100%;
+	width: 50%;
+}
+.pageContent {
+	background: rgba(0,0,0,0.3);
+	color: #FFF;
+}
+.hideShow { width: 50px; max-width: 50px; }
+.idColumn { width: 50px; max-width: 50px; }
+.emailColumn { width: 200px; max-width: 200px; }
+.firstnameColumn { width: 100px; max-width: 100px; }
+.lastnameColumn { width: 100px; max-width: 100px; }
+
+/*
+	Search Bar
+*/
+
+.topMenu {
+	background: rgba(0,0,0,0.8);
+	width: 100%;
+	height: 50px;
+	position: fixed;
+	z-index: 5;
+}
+.searchBar {
+	height: 50px;
+	background: rgba(255,255,255, 0.3);
+	color: #FFF;
+	border: 0;
+	outline-width: 0;
+	font-size: 24px;
+	padding: 5px;
+	padding-left: 20px;
+}
+.searchBar:hover {
+	background: rgba(255,255,255, 0.2);
+}
+.avatar {
+	width: 250px;
+}
+
+/*
+	PAINT TABLE
+*/
+
+.paintContainer {
+	overflow-y: auto;
+	height: 600px;
+}
+.timeSlot {
+	width: 12.5%;
+	border: solid 1px #CCC;
+}
+.paintSlot {
+	background: #555;
+	table-layout: fixed;
+}
+.paintHeader {
+	width: 12.5%;
+	border: solid 1px #CCC;
+}
+.paintDay {
+	width: 12.5%;
+	border: solid 1px #4C4C4C;
+}
+.paintDay:hover {
+	background: #999;
+	cursor: pointer;
+}
+.painted {
+	background: #2B95FF;
+	border: solid 2px #FFF;
+}
+.openDay {
+	color: #FFF;
+	background: rgba(0,0,0,0.5);
+	padding: 0.5%;
+	padding-left: 2%;
+	padding-right: 2%;
+	border-radius: 5px;
+	border: 1px solid #FFF;
+}
+
+

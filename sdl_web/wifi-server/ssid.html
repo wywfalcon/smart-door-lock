@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>SDL UI</title>
+		<style>
+			.center{margin:auto;}
+			.alignCenter{text-align:center;}
+			.label{color:#FFF;padding:2%;}
+			.margin{margin:3%;}
+			.boundBox{border-radius:10px;background:#F33;padding:1%;}
+		</style>
+	</head>
+	<body>
+		<table class="center boundBox">
+			<tr><td>
+				<form class="center" action="/connect" method="post">
+					<div class="label">Network Name</div><div class="alignCenter"><input type="text" name="ssid"><div class="error"></div></div>
+					<div class="label">Password</div><div class="alignCenter"><input type="text" name="pw"><div class="error"></div></div>
+					<div class="center"><input class="margin" type="submit" value="Submit"></div>
+				</form>
+			</td></tr>
+		</table>
+	</body>
+</html>

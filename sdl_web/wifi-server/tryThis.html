@@ -1,0 +1,60 @@
+<html lang="en">
+	<head>
+		<title>Local SDL</title>
+		<style>
+			*{font-family:Trebuchet MS;color:white;}
+			html,body{margin:0 auto;min-width:600px;min-height:100%;background:linear-gradient(white,#E35930);}
+			table{table-layout:fixed;margin:auto;}
+			.stretch,input[type="text"],input[type="password"]{width:100%;}
+			.center{text-align:center;}.right{text-align:right;}
+			td,input{background:rgba(0,0,0,.3);padding:3%;}.label{padding:3%;}
+			.bigFont{font-size:400%;}#content{font-size:300%;}input{font-size:115%;}
+			.btn{cursor:pointer;}.btn td:hover{background:rgba(0,0,0,.5);}.btn td.selected{background:rgba(0,0,0,.7);}
+		</style>
+	</head>
+	<body>
+		<table class="stretch">
+			<tr class="bigFont center">
+				<td colspan="3">Smart Door Lock</td>
+			</tr>
+			<tr class="bigFont btn center">
+				<td onclick="addUser()">+</td>
+				<td onclick="deleteUser()">&#x2212</td>
+				<td onclick="setWifi()">Wi-Fi</td>
+			</tr>
+			<tr><td id="content" colspan="3" class="smallFont">Select one of the options above</td></tr>
+		</table>
+		<script>
+			var content=document.getElementById('content'),
+				xhr=new XMLHttpRequest();
+			var addUser=function(){
+					req('POST','/enroll',null);
+				},
+				deleteUser=function(){
+					req('POST','/delete','id=199');
+				},
+				setWifi=function(){
+					content.innerHTML=
+						'<div class="label">Network Name<input id="ssid" type="text"></div>'+
+						'<div class="label">Password<input id="netPW" type="password"></div>'+
+						'<div class="label right"><input onclick="updateWifi()" type="button" value="Update"></div>';
+				},
+				updateWifi=function(){
+					var ssid=document.getElementById('ssid'),
+						netPW=document.getElementById('netPW');
+					req('POST','/setWifi','nssid='+ssid.value+'&passw='+netPW.value);
+				},
+				req=function(method,page,data){
+					xhr.open(method,page,true);
+					xhr.onreadystatechange=function(){
+						if(xhr.readyState===4){
+							content.innerHTML='<p>'+xhr.responseText.replace('$','')+'</p>';
+							if(xhr.responseText.indexOf('$')===-1)
+								req(method,page,data);
+						}
+					};
+					xhr.send(data);
+				};
+		</script>
+	</body>
+</html>
